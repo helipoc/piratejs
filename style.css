@@ -26,11 +26,15 @@ top:0px;
 transition:all 1.5s linear;
 }
 
-#player img {
-width:150px;
-height:80px;
-}
 
+
+.fire {
+  position: relative;
+  width:15px;
+  height:15px;
+  transition:all 1s linear;
+  top:-15px;
+}
 
 #enemy {
 

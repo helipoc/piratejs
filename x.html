@@ -14,13 +14,15 @@
 Score : 0 , Health : 200
 </div>
 <div  id="player">
-    <progress   id="healthbarPlayer" style=" position: relative; top:100%; width:150px;" max="200" min="0" value="200"></progress>    
-    <img src="img/player.png" />
+    <progress  id="healthbarPlayer" style=" position: relative; top:100%; width:150px;" max="200" min="0" value="200"></progress>    
+    <img id="playerTarget" src="img/player.png" width="150" height="80" />
+    <img src="img/fire.png" class="fire" id="playerFire"/>
 
 </div>
 <div id="enemy">
     <progress class="healthbar" id="healthbarEnemy" hidden style=" position: relative; top:100%;" max="100" min="0" value="100"></progress>    
-    <img src="img/enemy.png" hidden width="120" height="60"/>
+    <img id="enemyTarget" src="img/enemy.png" hidden width="120" height="60"/>
+    <img src="img/fire.png" hidden class="fire" id="enemyFire"/>
 </div>
 </div>
 </body>
