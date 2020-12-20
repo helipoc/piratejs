@@ -4,7 +4,7 @@ var player;
 window.onload=()=>{
 player = document.getElementById("player");
 player.health=200;
-player.ad=20;
+player.ad=10;
 player.score=0;
 document.addEventListener("click",(e)=>{
     player.style.left=0+"px";
@@ -25,7 +25,6 @@ var redX; // interval each 1s pick a new random position for the enemy and delet
 let aliveEnemy=false;
 function Spawn(){
 aliveEnemy=true;
-enemyFire.hidden=false;
 enemy = document.getElementById("enemy")
 enemy.getElementsByTagName('img')[0].hidden=false;
 enemy.style.opacity=1;
@@ -62,6 +61,8 @@ if(enemy.health<=0){
 document.onkeypress = (e) => {
     if(e.code=="Space"){
         if(Math.abs(enemyTarget.getBoundingClientRect().x-playerTarget.getBoundingClientRect().x)<120){
+            playerFire.hidden=false;
+            playerFire.style.transition="all .5s linear";
             info.textContent=`Score : ${player.score}, Health : ${player.health}`
             enemy.health-=player.ad;
             healthbarEnemy.value-=player.ad;
@@ -73,8 +74,10 @@ document.onkeypress = (e) => {
       
         
         setTimeout(()=>{
+            playerFire.hidden=true;
+            playerFire.style.transition="all 0s linear";
             playerFire.style.left=0;
-            playerFire.style.top="-15px";
+            playerFire.style.top=0;
         },800)
         }
         
@@ -97,6 +100,8 @@ setInterval(()=>{
     if(Math.abs(enemyTarget.getBoundingClientRect().x-playerTarget.getBoundingClientRect().x)<80 && aliveEnemy){
         player.health-=10;
         healthbarPlayer.value-=10;
+        enemyFire.hidden=false;
+        enemyFire.style.transition="all .5s linear";
         info.textContent=`Score : ${player.score}, Health : ${player.health}`
         if(enemyTarget.getBoundingClientRect().y<playerTarget.getBoundingClientRect().y){
             enemyFire.style.top="1000px";
@@ -106,8 +111,10 @@ setInterval(()=>{
             enemyFire.style.top="-1000px";
         }  
         setTimeout(()=>{
+            enemyFire.style.transition="all 0s linear";
             enemyFire.style.left=0;
-            enemyFire.style.top="-15px";
+            enemyFire.style.top=0;
+            enemyFire.hidden=true;
         },800)
 
         
