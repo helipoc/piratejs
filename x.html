@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <script src="game.js"></script>
+    <title>Game</title>
+</head>
+<body>
+
+<div id="ocean">
+<div id="info">
+Score : 0 , Health : 200
+</div>
+<div  id="player">
+    <progress   id="healthbarPlayer" style=" position: relative; top:100%; width:150px;" max="200" min="0" value="200"></progress>    
+    <img src="img/player.png" />
+
+</div>
+<div id="enemy">
+    <progress class="healthbar" id="healthbarEnemy" hidden style=" position: relative; top:100%;" max="100" min="0" value="100"></progress>    
+    <img src="img/enemy.png" hidden width="120" height="60"/>
+</div>
+</div>
+</body>
+</html>
